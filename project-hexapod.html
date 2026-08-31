@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hexapod Walking Robot — Andrew Bai</title>
+<meta name="description" content="Six-legged walking platform with an inverse-kinematics gait engine.">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="logotype" href="index.html">Andrew Bai <span>— Portfolio</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="index.html">Home</a>
+      <a class="nav__link" href="projects.html" aria-current="page">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="project-hero">
+    <div class="wrap">
+      <a class="backlink" href="projects.html"><span aria-hidden="true">&larr;</span> All projects</a>
+      <p class="eyebrow">Robotics · 2026</p>
+      <h1 class="display">Hexapod<br>Walking Robot</h1>
+      <p class="lede project-hero__lede">
+        A six-legged walking platform with 18 servos, 
+        a gait engine that solves leg positions in real time, 
+        and a 3D printed chassis.
+      </p>
+
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo Project</dd></div>
+        <div><dt>Duration</dt><dd>Four months</dd></div>
+        <div><dt>Tools/Skills</dt><dd>SOLIDWORKS, C++, Python</dd></div>
+        <div><dt>Status</dt><dd>Complete</dd></div>
+      </dl>
+
+      <a class="facts-link" href="https://github.com/andrewjbai-stack/Hexapod-Project" target="_blank" rel="noopener">
+        Source on GitHub <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap wrap--wide">
+      <figure class="figure">
+        <div class="collage">
+          <img src="assets/img/HexapodCADInsidePage.png" alt="Hexapod solidworks design" width="1200" height="900">
+          <img src="assets/img/HexapodRealLife.jpg" alt="Hexapod in real life" width="1200" height="900">
+          <img src="assets/img/hexapodController.png" alt="Controller python application" width="1200" height="900">
+        </div>
+        <figcaption>Pictures of the Hexapod and Controller</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block block--divide">
+    <div class="wrap wrap--wide">
+      <p class="eyebrow">Walking test</p>
+      <figure class="figure">
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/0bg0jqfnZOg"
+                  title="Hexapod walking test"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                  allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figcaption>
+          Tripod gait demo
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">Process</h2>
+      <ol class="steps steps--open">
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Picking Parts</h3>
+              <p>Before spending anything, I had to figure out what parts would be right for what I need.</p>
+            </summary>
+            <div class="step__more">
+              <p>
+                This was the most important part, especially since I was on a pretty tight budget.
+                The biggest decision was the type of servo. They dictated 
+                how powerful the hexapod could be, and how expensive it would be for both price and power.
+                Every other decision would have to be made around this choice.
+              </p>
+              <ul class="bullets">
+                <li>MG996R Servos: From the start it was between this and the SG90 (The two cheapest I could find).
+                  Eventually I landed on the MG996R since based on a rough estimate, the SG90 wouldn't have enough torque.</li>
+                <li>ESP32 microcontroller: There were no huge restrictions on what MCU I could use, 
+                  so I just used what I had on hand.
+                </li>
+                <li>
+                  2S 15C Li-ion Battery: The biggest thing was voltage and maximum current output. 
+                  I needed something with a voltage close to what my MCU and servos could handle,
+                  as well as a maximum current that could handle 18 servos stalling at once. The battery runtime
+                  was never a consideration, because this project was just for fun.
+                </li>
+                <li>PLA for the printed structure. Again, no huge restrictions on this front
+                  since I knew there weren't going to be any huge forces acting on the limbs.
+                </li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Creating the Leg</h3>
+              <p>Next I had to figure out one leg before I took on six. From my first time
+                3D printing to solving inverse kinematics equations, this section covered a lot.
+              </p>
+            </summary>
+            <div class="step__more">
+              <p>
+                Building it was a crash course in 3D printing. I had never touched a printer before, 
+                so I designed the leg the way I thought parts should look,
+                and then found out what a printer will actually give you. 
+                Overhangs, tolerances, layer adhesion: none of it was in my head when I drew the first version. 
+                So, I had to redesign the whole leg.
+              </p>
+              <p>The next part was figuring out the inverse kinematics. At first I had no idea what to do,
+                but eventually I realised that if you flip it upside down, the leg is just a 3-axis robot arm.
+                Knowing that really helped when I derived the formulas. Visualized calculations:
+                <a href="https://www.desmos.com/3d/ltcadld6iu" target="_blank" rel="noopener">Desmos</a>
+              </p>
+              <p>
+                The last part was wiring it up and programming it. I connected the servo controller board to
+                the ESP via I2C, implemented the PWM signalling, and hooked it all up to my derived inverse kinematic equations.
+
+              </p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Full Chassis Assembly</h3>
+              <p>This is where I put it all together. Printing the central plate, 
+                soldering the power harness, and a very long time assembling.
+              </p>
+            </summary>
+            <div class="step__more">
+              <p>After a 2-hour assembly (yikes), 
+                I finally got to see the full robot come together in real life.
+                I soldered together the power harness, connected all the servos
+                to the servo controllers, and finally powered it on... only for it to freak out.
+                There were two major oversights I had to fix before I finally had it standing straight:
+
+              </p>
+              <ul class="bullets">
+                <li>Every servo needed to be centered at 90° before its horn went on.</li>
+                <li>
+                  The buck converter I bought only worked for voltages above ~10V, despite saying
+                  the minimum was 6V. So, instead of buying another one, I soldered my two 7.2V batteries in series
+                  to get a 14.4V source.
+                </li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Control and Gait</h3>
+              <p>Last part was programming the input and gait. 
+                I went with a Python serial front end for simplicity, and a tripod gait for speed.
+              </p>
+            </summary>
+            <div class="step__more">
+              <p>
+                This part caused me some trouble since I was working under many mechanical restrictions; 
+                angle limits due to leg design, servo speed limits, 
+                as well as the terrible servo backlash, these were all contributing factors. 
+                This forced me to add a lot of restrictions to the code to ensure that those limits would never be hit.
+              </p>
+              <p>Afterwards, I implemented the tripod gait. 
+                This is where the six legs are split up into two groups of three, where each group
+                takes turns stepping in the target direction. This gait is not only the simplest to implement, 
+                but the fastest in terms of moving speed.
+              </p>
+               <p>
+                Finally I tied it up with a simple Python front end. This includes a serial connection panel, 
+                movement buttons, as well as a debugging log window.
+              </p>
+            </div>
+          </details>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">Specifications</h2>
+      <table class="specs">
+        <tbody>
+          <tr><th scope="row">Degrees of freedom</th><td>18 (three per leg)</td></tr>
+          <tr><th scope="row">Controller</th><td>ESP32</td></tr>
+          <tr><th scope="row">Actuators</th><td>18 × MG996R, 5&nbsp;V bus</td></tr>
+          <tr><th scope="row">Servo Controller</th><td>PCA9685</td></tr>
+          <tr><th scope="row">Mass</th><td>2.1&nbsp;kg with battery</td></tr>
+          <tr><th scope="row">Walking speed</th><td>0.4&nbsp;km/h, tripod gait</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">What I learned</h2>
+      <div>
+        <ul class="bullets">
+          <li>Design for the printer. Overhangs, tolerances and layer
+            orientation decide the geometry, I learned that after having to redraw the leg. </li>
+          <li>Inverse kinematics is just trigonometry and linear algebra.</li>
+          <li>Ease of assembly is worth it. Next time: heat set inserts, 
+            and a design with maintenance in mind.</li>
+        </ul>
+        <div class="note" style="margin-top:32px">
+          <p class="eyebrow">Next revision</p>
+          <p>Custom servos, LiDaR sensors, and a bigger chassis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="pagination" aria-label="Project navigation">
+      <a href="projects.html">
+        <span class="pagination__dir">Index</span>
+        <span class="pagination__title">All projects</span>
+      </a>
+
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="mailto:andrew.j.bai@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
