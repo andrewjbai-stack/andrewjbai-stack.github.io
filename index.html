@@ -12,137 +12,120 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- ======================= HEADER =======================
+     Icon links: each shows its icon at rest and swaps to its label on
+     hover/focus. Same block is copied into every page. -->
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="logotype" href="index.html">Andrew Bai <span>— Portfolio</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="index.html" aria-current="page">Home</a>
-      <a class="nav__link" href="projects.html">Projects</a>
+    <nav class="nav" aria-label="Contact">
+      <a class="nav__icon" href="mailto:andrew.j.bai@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+        <span class="nav__label">Email</span>
+      </a>
+      <a class="nav__icon" href="https://github.com/andrewjbai-stack" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        <span class="nav__label">GitHub</span>
+      </a>
+      <a class="nav__icon" href="https://www.linkedin.com/in/andrew-b-119921384/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"/></svg>
+        <span class="nav__label">LinkedIn</span>
+      </a>
+      <a class="nav__icon" href="assets/Andrew_Bai_Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+        <span class="nav__label">Resume</span>
+      </a>
     </nav>
   </div>
 </header>
 
 <main id="main">
 
-  <section class="hero">
-    <div class="wrap hero__grid">
-      <div>
-        <h1 class="display">
-          Andrew Bai's<br>
-          Project Portfolio
-        </h1>
-
-        <dl class="hero__meta">
-          <div><dt>Based in</dt><dd>Toronto, Canada</dd></div>
-          <div><dt>Focus</dt><dd>Robotics, embedded systems, CAD</dd></div>
-          <div><dt>Education</dt><dd>University of Waterloo</dd></div>
-        </dl>
-      </div>
-
-      <img class="portrait" src="assets/img/portrait.svg" alt="Portrait of Andrew Bai" width="800" height="1000">
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap cols">
-      <h2 class="eyebrow" style="margin:0">About</h2>
-      <div class="prose">
-
-        <p>
-          I am an engineering student working across mechanics, electronics and code.
-          Most of what I build starts as a cool idea, something I wished I had as a kid, 
-          or something I want to try and expand on, and ends
-          as a working prototype.
-        </p>
-
-        <p>
-          You can see selected work on the <a href="projects.html">projects page</a>,
-          or reach me at the links below.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap cols">
-      <h2 class="eyebrow" style="margin:0">Experience</h2>
-      <ul class="exp">
-
-        <li>
-          <div>
-            <p class="exp__role">Onboard Payload Software Intern</p>
-            <p class="exp__org">Telesat — Ottawa</p>
-            <p class="exp__note">Satellite side application level code; Connection management and debugging tools</p>
-          </div>
-          <span class="exp__date">Spring 2026</span>
-        </li>
-        <li>
-          <div>
-            <p class="exp__role">Autonomy Team Member</p>
-            <p class="exp__org">Waterloo Aerial Robotics Group</p>
-            <p class="exp__note">Autonomy code for various aerial robots.</p>
-          </div>
-          <span class="exp__date">Winter 2026 — Present</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap cols">
-      <h2 class="eyebrow" style="margin:0">Elsewhere</h2>
-      <div class="rows">
-
-        <a class="row" href="mailto:andrew.j.bai@gmail.com">
-          <span class="row__label">Email</span>
-          <span class="row__value">andrew.j.bai@gmail.com <span class="row__arrow" aria-hidden="true">&rarr;</span></span>
-        </a>
-
-        <a class="row" href="https://github.com/andrewjbai-stack" target="_blank" rel="noopener">
-          <span class="row__label">GitHub</span>
-          <span class="row__value">github.com/andrewjbai-stack <span class="row__arrow" aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="row" href="https://www.linkedin.com/in/andrew-b-119921384/" target="_blank" rel="noopener">
-          <span class="row__label">LinkedIn</span>
-          <span class="row__value">linkedin.com/andrew-bai <span class="row__arrow" aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="row" href="assets/Andrew_Bai_Resume.pdf">
-          <span class="row__label">Résumé</span>
-          <span class="row__value">PDF <span class="row__arrow" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--last">
+  <!-- ======================= PAGE HEAD ======================= -->
+  <section class="page-head">
     <div class="wrap">
-      <h2 class="eyebrow">Selected images</h2>
-      <div class="strip">
-
-        <figure>
-          <img src="assets/img/photo-1.svg" alt="Hexapod chassis on the bench" width="800" height="600">
-          <!-- <figcaption>Hexapod chassis, assembly stage</figcaption> -->
-        </figure>
-        <figure>
-          <img src="assets/img/photo-2.svg" alt="Controller board close-up" width="800" height="600">
-          <!-- <figcaption>Controller board, first revision</figcaption> -->
-        </figure>
-        <figure>
-          <img src="assets/img/photo-3.svg" alt="CAD assembly view" width="800" height="600">
-          <!-- <figcaption>Planetary gear assembly, CAD</figcaption> -->
-        </figure>
-      </div>
+      <p class="eyebrow">Work</p>
+      <h1 class="display">Projects</h1>
+      <p class="page-head__count">Two projects 2026</p>
     </div>
   </section>
+
+  <!-- =======================================================================
+       PROJECT LIST
+
+       To add a project, copy one <li class="project"> block and change:
+         - the index number
+         - the image src + alt
+         - title, year, description, tags
+         - the href on .project__link (link to a case-study page, repo, or #)
+       ======================================================================= -->
+  <div class="wrap">
+    <ul class="projects">
+
+      <!-- HEXAPOD -->
+      <li class="project">
+        <a class="project__link" href="project-hexapod.html">
+          <div class="project__frame">
+            <img class="project__img" src="assets/img/HexapodCAD.png" alt="Hexapod walking robot" width="900" height="600" loading="lazy">
+            <span class="project__index">01</span>
+            <span class="project__rule" aria-hidden="true"></span>
+            <span class="project__reveal">
+              <span class="project__reveal-label">View project</span>
+              <span class="project__reveal-arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+          <div class="project__body">
+            <h2 class="h3">Hexapod Robot</h2>
+            <span class="project__year">2026</span>
+          </div>
+        </a>
+        <p class="project__desc">
+          A six-legged walking platform with 18 servos, a gait engine that solves leg positions in real time,
+          and a 3D printed chassis.
+        </p>
+        <ul class="project__tags">
+          <li>Robotics</li><li>C++</li><li>SolidWorks</li>
+        </ul>
+      </li>
+      <!-- STABILI KNEE -->
+      <li class="project">
+        <a class="project__link" href="https://devpost.com/software/stabiliknee">
+          <div class="project__frame">
+            <img class="project__img" src="assets/img/StabiliKneeDevpost.png" alt="Stabili-Knee" width="900" height="600" loading="lazy">
+            <span class="project__index">02</span>
+            <span class="project__rule" aria-hidden="true"></span>
+            <span class="project__reveal">
+              <span class="project__reveal-label">View project</span>
+              <span class="project__reveal-arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+          <div class="project__body">
+            <h2 class="h3">Knee Stabilizer</h2>
+            <span class="project__year">2026</span>
+          </div>
+        </a>
+        <p class="project__desc">
+          An automatic knee brace which adjusts its position based on knee position.
+        </p>
+        <ul class="project__tags">
+          <li>C++</li><li>Hackathon</li><li>Electronics</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
 </main>
 
+<!-- ======================= FOOTER ======================= -->
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <nav aria-label="Footer">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
+      <a href="index.html">Projects</a>
       <a href="mailto:andrew.j.bai@gmail.com">Email</a>
+      <a href="https://github.com/andrewjbai-stack" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/andrew-b-119921384/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/Andrew_Bai_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="#main">Back to top &uarr;</a>
     </nav>
   </div>
 </footer>
