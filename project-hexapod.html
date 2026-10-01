@@ -67,7 +67,7 @@
     <div class="wrap wrap--wide">
       <figure class="figure">
         <div class="collage">
-          <img src="assets/img/HexapodCADInsidePage.png" alt="Hexapod solidworks design" width="1200" height="900">
+          <img src="assets/img/HexapodCADInsidePage.png" alt="Hexapod SolidWorks design" width="1200" height="900">
           <img src="assets/img/HexapodRealLife.jpg" alt="Hexapod in real life" width="1200" height="900">
           <img src="assets/img/hexapodController.png" alt="Controller python application" width="1200" height="900">
         </div>
@@ -112,12 +112,12 @@
             <div class="step__more">
               <p>
                 This was the most important part, especially since I was on a pretty tight budget.
-                The biggest decision was the type of servo. They dictated 
-                how powerful the hexapod could be, and how expensive it would be for both price and power.
+                The biggest decision was the type of servo. It dictated
+                how powerful the hexapod could be, and how much it would cost, both in money and in power.
                 Every other decision would have to be made around this choice.
               </p>
               <ul class="bullets">
-                <li>MG996R Servos: From the start it was between this and the SG90 (The two cheapest I could find).
+                <li>MG996R Servos: From the start it was between this and the SG90 (the two cheapest I could find).
                   Eventually I landed on the MG996R since based on a rough estimate, the SG90 wouldn't have enough torque.</li>
                 <li>ESP32 microcontroller: There were no huge restrictions on what MCU I could use, 
                   so I just used what I had on hand.
@@ -152,13 +152,13 @@
                 So, I had to redesign the whole leg.
               </p>
               <p>The next part was figuring out the inverse kinematics. At first I had no idea what to do,
-                but eventually I realised that if you flip it upside down, the leg is just a 3-axis robot arm.
+                but eventually I realized that if you flip it upside down, the leg is just a 3-axis robot arm.
                 Knowing that really helped when I derived the formulas. Visualized calculations:
                 <a href="https://www.desmos.com/3d/ltcadld6iu" target="_blank" rel="noopener">Desmos</a>
               </p>
               <p>
                 The last part was wiring it up and programming it. I connected the servo controller board to
-                the ESP via I2C, implemented the PWM signalling, and hooked it all up to my derived inverse kinematic equations.
+                the ESP via I2C, implemented the PWM signalling, and hooked it all up to my derived inverse kinematics equations.
 
               </p>
             </div>
@@ -201,18 +201,18 @@
             </summary>
             <div class="step__more">
               <p>
-                This part caused me some trouble since I was working under many mechanical restrictions; 
-                angle limits due to leg design, servo speed limits, 
-                as well as the terrible servo backlash, these were all contributing factors. 
+                This part caused me some trouble since I was working under many mechanical restrictions:
+                angle limits due to the leg design, servo speed limits,
+                and the terrible servo backlash.
                 This forced me to add a lot of restrictions to the code to ensure that those limits would never be hit.
               </p>
               <p>Afterwards, I implemented the tripod gait. 
                 This is where the six legs are split up into two groups of three, where each group
                 takes turns stepping in the target direction. This gait is not only the simplest to implement, 
-                but the fastest in terms of moving speed.
+                but also the fastest in terms of moving speed.
               </p>
                <p>
-                Finally I tied it up with a simple Python front end. This includes a serial connection panel, 
+                Finally I tied it together with a simple Python front end. It includes a serial connection panel,
                 movement buttons, as well as a debugging log window.
               </p>
             </div>
@@ -248,14 +248,14 @@
       <div>
         <ul class="bullets">
           <li>Design for the printer. Overhangs, tolerances and layer
-            orientation decide the geometry, I learned that after having to redraw the leg. </li>
+            orientation decide the geometry. I learned that after having to redraw the leg.</li>
           <li>Inverse kinematics is just trigonometry and linear algebra.</li>
-          <li>Ease of assembly is worth it. Next time: heat set inserts, 
+          <li>Ease of assembly is worth it. Next time: heat-set inserts,
             and a design with maintenance in mind.</li>
         </ul>
         <div class="note" style="margin-top:32px">
           <p class="eyebrow">Next revision</p>
-          <p>Custom servos, LiDaR sensors, and a bigger chassis</p>
+          <p>Custom servos, LiDAR sensors, and a bigger chassis.</p>
         </div>
       </div>
     </div>

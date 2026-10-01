@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handheld LiDAR Scanner — Andrew Bai</title>
+<meta name="description" content="Handheld 3D room scanner built on a Unitree L2 lidar, GLIM lidar-inertial SLAM, and a Gazebo simulation twin.">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="logotype" href="index.html">Andrew Bai <span>— Portfolio</span></a>
+    <nav class="nav" aria-label="Contact">
+      <a class="nav__icon" href="mailto:andrew.j.bai@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+        <span class="nav__label">Email</span>
+      </a>
+      <a class="nav__icon" href="https://github.com/andrewjbai-stack" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        <span class="nav__label">GitHub</span>
+      </a>
+      <a class="nav__icon" href="https://www.linkedin.com/in/andrew-b-119921384/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"/></svg>
+        <span class="nav__label">LinkedIn</span>
+      </a>
+      <a class="nav__icon" href="assets/Andrew_Bai_Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+        <span class="nav__label">Resume</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- BLOCK: project-hero -->
+  <section class="project-hero">
+    <div class="wrap">
+      <a class="backlink" href="index.html"><span aria-hidden="true">&larr;</span> All projects</a>
+      <p class="eyebrow">Robotics · 2026</p>
+      <h1 class="display">Handheld<br>LiDAR Scanner</h1>
+      <p class="lede project-hero__lede">
+        A handheld 3D room scanner built around a Unitree L2 lidar,
+        with lidar-inertial SLAM, a Gazebo simulation of the whole thing,
+        and a driver fix for a sensor whose clock runs at half speed.
+      </p>
+
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo Project</dd></div>
+        <div><dt>Duration</dt><dd>Six weeks</dd></div>
+        <div><dt>Tools/Skills</dt><dd>ROS 2, C++, Python, Gazebo</dd></div>
+        <div><dt>Status</dt><dd>Complete</dd></div>
+      </dl>
+
+      <!-- TODO: uncomment once the repo is public
+      <a class="facts-link" href="https://github.com/andrewjbai-stack/REPO_NAME" target="_blank" rel="noopener">
+        Source on GitHub <span aria-hidden="true">&rarr;</span>
+      </a> -->
+    </div>
+  </section>
+
+  <!-- BLOCK: single image -->
+  <section class="block">
+    <div class="wrap wrap--wide">
+      <figure class="figure">
+        <img src="assets/img/LidarMapTop.jpg" alt="Top-down point cloud of a bedroom and the hallway outside it, walls drawn in white dots" width="1600" height="900">
+        <figcaption>My room from above: 842,000 points from a 130-second walk with the scanner (ceiling removed).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BLOCK: steps -->
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">Process</h2>
+      <ol class="steps steps--open">
+
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Setting Up the Simulation</h3>
+              <p>Before buying anything, I wanted to learn ROS 2 and SLAM on a robot that couldn't break.</p>
+            </summary>
+            <div class="step__more">
+              <p>
+                The first step was setting everything up. This part involved a lot of tools which I had never used before.
+                I went with <b>ROS 2 Jazzy</b> since it has the best compatibility with a lot of tools out there. After that I loaded up
+                <b>Unity</b> and tried to write a simple Unity TCP connection. After many failed attempts I had something that "worked":
+                it would publish, but it was inconsistent and finicky. So, I scrapped it and downloaded <b>Gazebo</b>, which is really what I
+                should have done in the first place.
+              </p>
+              <p>
+                In Gazebo I turned the robot into the thing I actually wanted: <b>a handheld 3D scanner</b>.
+                The first version was a 2D spinning lidar on a rotating servo. I went with this because I was planning on using
+                the <b>VLP-16 scanner</b>. However, when I did some more research I realized the VLP-16 was end of life, and VERY expensive on Facebook Marketplace.
+                So instead I landed on the <b>Unitree L2</b>, which was not only cheaper, but had a much wider field of view than the VLP-16 (360° × 90° vs. 360° × 30°).
+                I updated my URDF file, did a little bit of testing and moved on to the next step.
+              </p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Simulation Testing</h3>
+              <p>Adding realistic sensor noise and movement to my simulation, and pushing it to its limits.</p>
+            </summary>
+            <div class="step__more">
+              <p>
+                Now that my simulation was set up, I had a workspace to test how well this setup actually works.
+                The first step was to add <b>realistic sensor noise</b>. To do this I created a <b>custom noise injection script</b>
+                that changed both IMU and lidar values based on a Gaussian distribution. Gazebo does give a parameter
+                to add this directly in the URDF, however I wanted more control over the types of faults I could inject.
+              </p>
+              <p>
+                Next, I needed the scanner to actually move like it was being carried. I wrote a motion script that
+                walks the scanner through a loop of waypoints around the room. 
+                On top of that path, I layered the motion of a real hand: a vertical bob and side-to-side sway at walking cadence, a
+                slow wobble from the wrist, and a small <b>8–12 Hz</b> hand tremor. One problem I ran into was that Gazebo's built-in
+                velocity controller just sets the model's velocity directly, so the simulated IMU never felt any
+                acceleration. To fix this, I wrote a custom Gazebo plugin that moves the scanner by applying forces
+                and torques, so the IMU sees the same kind of motion it would in someone's hand. Walking speed, turn
+                rate and tremor are all parameters. This allowed me to test different speeds and see how <b>GLIM</b>, the lidar-inertial SLAM package I chose, reacts.
+                I pushed it as far as <b>10.0 m/s</b> and <b>90.0&deg;/s</b> with good results.
+              </p>
+            </div>
+          </details>
+        </li>
+        
+        <li>
+          <details class="step">
+            <summary>
+              <h3 class="h3">Scanning My Room</h3>
+              <p>Taking the real Unitree L2 off the shelf and finding out everything the simulation didn't tell me.</p>
+            </summary>
+            <div class="step__more">
+              <p>
+                With the simulation working, it was finally time to plug in the real <b>Unitree L2</b>. Since my whole
+                setup lives in WSL, I passed the lidar through from Windows with <b>usbipd</b>, launched the same GLIM
+                pipeline I'd been using in sim, and walked around my room. The first maps were bad. Walls smeared
+                whenever I moved quickly, and the map slowly drifted away from where it should have been. My first guesses
+                were that WSL couldn't keep up or that data was being dropped, but neither turned out to be the problem.
+              </p>
+              <p>
+                To find the real cause, I recorded the raw serial data directly on Windows and compared it to what the
+                driver was reporting. It turned out the L2's firmware was stamping each IMU sample as 2 ms apart, but
+                the IMU was really running at about <b>252 Hz</b>, so the sensor's clock was running at only
+                <b>0.505x real time</b>. GLIM was seeing every motion as twice as fast as it really was. I modified the
+                driver to correct the timestamps, and the smearing went away. Next was the accelerometer. At rest it
+                read about 10.15 m/s² instead of 9.81, and the error was different on each axis. My first fix with a
+                single scale factor made things worse, and the map flew off almost <b>190 m</b>. I ended up
+                calibrating a separate scale and bias for each axis, which finally made the map stable. I also found the
+                driver occasionally sends a scan with broken timestamps that freezes GLIM, so I wrote a small filter
+                node that drops those scans before they get to it.
+              </p>
+            </div>
+          </details>
+        </li>
+
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- BLOCK: pair — before / after -->
+  <section class="block block--divide">
+    <div class="wrap">
+      <p class="eyebrow">What the scanner sees</p>
+      <div class="pair">
+        <figure class="figure">
+          <img src="assets/img/Gazebo_map.png" alt="View of Gazebo simulation map" width="1200" height="900">
+          <figcaption>The Gazebo map</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets/img/Rviz_map.png" alt="Same view of the scanned recreation in RViz" width="1200" height="900">
+          <figcaption>RViz scanned recreation</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: specs -->
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">Specifications</h2>
+      <table class="specs">
+        <tbody>
+          <tr><th scope="row">Sensor</th><td>Unitree L2, 360° lidar with built-in 6-axis IMU</td></tr>
+          <tr><th scope="row">Measured rates</th><td>IMU 252&nbsp;Hz, ~36,000 points/s</td></tr>
+          <tr><th scope="row">Connection</th><td>USB serial, passed into WSL2 with usbipd</td></tr>
+          <tr><th scope="row">SLAM</th><td>GLIM lidar-inertial odometry with loop closure (CPU)</td></tr>
+          <tr><th scope="row">Software</th><td>ROS 2 Jazzy, Ubuntu 24.04 in WSL2</td></tr>
+          <tr><th scope="row">Simulation</th><td>Gazebo, custom C++ handheld-motion plugin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BLOCK: bullets + note -->
+  <section class="block block--divide">
+    <div class="wrap cols">
+      <h2 class="eyebrow" style="margin:0">What I learned</h2>
+      <div>
+        <ul class="bullets">
+          <li>Getting a working simulation is just the start. Real sensors bring in issues you could never have dreamed of.</li>
+          <li>Do your research. I wasted a lot of time trying to use tools that weren't the best option for my needs.</li>
+          <li>Stop guessing your causes from the symptoms. Sometimes you need to go into the raw data to see what's wrong.</li>
+        </ul>
+        <div class="note" style="margin-top:32px">
+          <p class="eyebrow">Next</p>
+          <p>Strap it onto my Hexapod.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: pagination -->
+  <div class="wrap">
+    <nav class="pagination" aria-label="Project navigation">
+      <a href="index.html">
+        <span class="pagination__dir">Index</span>
+        <span class="pagination__title">All projects</span>
+      </a>
+      <a class="pagination__next" href="project-hexapod.html">
+        <span class="pagination__dir">Next project</span>
+        <span class="pagination__title">Hexapod Robot &rarr;</span>
+      </a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <nav aria-label="Footer">
+      <a href="index.html">Projects</a>
+      <a href="mailto:andrew.j.bai@gmail.com">Email</a>
+      <a href="https://github.com/andrewjbai-stack" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/andrew-b-119921384/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/Andrew_Bai_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="#main">Back to top &uarr;</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

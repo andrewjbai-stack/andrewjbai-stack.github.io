@@ -46,28 +46,42 @@
     <div class="wrap">
       <p class="eyebrow">Work</p>
       <h1 class="display">Projects</h1>
-      <p class="page-head__count">Two projects 2026</p>
+      <p class="page-head__count">Three projects · 2026</p>
     </div>
   </section>
 
-  <!-- =======================================================================
-       PROJECT LIST
-
-       To add a project, copy one <li class="project"> block and change:
-         - the index number
-         - the image src + alt
-         - title, year, description, tags
-         - the href on .project__link (link to a case-study page, repo, or #)
-       ======================================================================= -->
   <div class="wrap">
     <ul class="projects">
-
+      <!-- LIDAR SCANNER -->
+      <li class="project">
+        <a class="project__link" href="project-lidar-scanner.html">
+          <div class="project__frame">
+            <img class="project__img" src="assets/img/LidarCard.jpg" alt="Top-down lidar point cloud of a room" width="900" height="600" loading="lazy">
+            <span class="project__index">01</span>
+            <span class="project__rule" aria-hidden="true"></span>
+            <span class="project__reveal">
+              <span class="project__reveal-label">View project</span>
+              <span class="project__reveal-arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+          <div class="project__body">
+            <h2 class="h3">Handheld LiDAR Scanner</h2>
+            <span class="project__year">2026</span>
+          </div>
+        </a>
+        <p class="project__desc">
+          A handheld 3D room scanner using a Unitree L2 lidar and lidar-inertial SLAM, with a Gazebo simulation of the whole setup.
+        </p>
+        <ul class="project__tags">
+          <li>ROS 2</li><li>Python</li><li>SLAM</li>
+        </ul>
+      </li>
       <!-- HEXAPOD -->
       <li class="project">
         <a class="project__link" href="project-hexapod.html">
           <div class="project__frame">
             <img class="project__img" src="assets/img/HexapodCAD.png" alt="Hexapod walking robot" width="900" height="600" loading="lazy">
-            <span class="project__index">01</span>
+            <span class="project__index">02</span>
             <span class="project__rule" aria-hidden="true"></span>
             <span class="project__reveal">
               <span class="project__reveal-label">View project</span>
@@ -92,7 +106,7 @@
         <a class="project__link" href="https://devpost.com/software/stabiliknee">
           <div class="project__frame">
             <img class="project__img" src="assets/img/StabiliKneeDevpost.png" alt="Stabili-Knee" width="900" height="600" loading="lazy">
-            <span class="project__index">02</span>
+            <span class="project__index">03</span>
             <span class="project__rule" aria-hidden="true"></span>
             <span class="project__reveal">
               <span class="project__reveal-label">View project</span>
